@@ -1,0 +1,304 @@
+body {
+  font: 15px/1.5 Arial, helvetica, sans-serif;
+  padding: 0;
+  margin: 0;
+  background-color: #f4f4f4;
+}
+
+.container {
+  width: 80%;
+  margin: auto;
+  overflow: hidden;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background: #35424a;
+  color: #ffffff;
+  padding-top: 30px;
+  min-height: 70px;
+  border-bottom: #A24936 3px solid;
+}
+
+
+header li {
+  float: left;
+  display: inline;
+  padding: 0 20px 0 20px;
+}
+
+header #logo {
+  float: left;
+}
+
+header #logo h1 {
+  margin: 0;
+}
+
+header nav {
+  float: right;
+  margin-top: 12px;
+}
+
+header a:hover {
+  color: #cccccc;
+  font-weight: bold;
+}
+
+header .highlight,
+header .current a {
+  color: #A24936;
+  font-weight: bold;
+}
+
+/* Seccion Info */
+
+#info {
+  min-height: 500px;
+  background: #000000 no-repeat 0 -500px;
+  text-align: center;
+  color: #ffffff;
+}
+
+#info h1 {
+  margin-top: 140px;
+  font-size: 55px;
+  margin-bottom: 10px;
+}
+
+#info p {
+  font-size: 16px;
+}
+
+/*Seccion Cajas*/
+
+#cuadriculas {
+  margin-top: 20px;
+}
+
+#cuadriculas .container .caja img {
+  width: 90%;
+  height: auto;
+  border-radius: 50%;
+}
+
+#cuadriculas .caja {
+  float: left;
+  text-align: center;
+  width: 30%;
+  padding: 10px;
+}
+
+/*Seccion expertos*/
+
+#expertos {
+  min-height: 700px;
+  background-color: #238EEE;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+#expertos h1 {}
+
+#expertos .exp {
+  float: left;
+  display: inline-block;
+  box-shadow: 0px 0px 50px 0px rgba(15, 15, 43, 0.65);
+  transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
+  margin: 15px 15px 15px 15px;
+  padding: 60px 30px 60px 30px;
+  text-align: center;
+  width: 27%;
+  background-color: #ffffff;
+}
+
+#expertos h1 {
+  color: #ffffff;
+  font-size: 40px;
+  margin-top: 50px;
+  text-align: center;
+}
+
+#expertos img {
+  width: 189px;
+}
+
+/*Footer*/
+
+footer {
+  padding: 20px;
+  color: #ffffff;
+  background-color: #000000;
+  display: flex;
+}
+
+footer .Logo_Container {
+  border: 1px solid #568a32;
+  background: #568a32;
+  width: 25%;
+  height: 25%;
+  border-radius: 25px;
+  margin-top: 3%;
+}
+
+footer .Footer_Navigation {
+  margin-top: 5%;
+  margin-left: 10%;
+}
+
+footer .Footer_Navigation .navigation a {
+  text-decoration: none;
+  color: inherit;
+}
+
+footer .Footer_Navigation .navigation li {
+  list-style: none;
+}
+
+footer .Logo_Container img {
+  width: 100%;
+  height: 100%;
+}
+
+footer .Contact_Info {
+  margin-left: 16.5%;
+  margin-top: 3.5%;
+}
+
+footer .Contact_Info h3 {
+  align-items: center;
+}
+
+footer .Contact_Info ul li,
+footer .Contact_Info a {
+  list-style: none;
+  text-decoration: none;
+  color: inherit;
+}
+
+footer .Contact_Info ul {
+  display: flex;
+  justify-content: center;
+  margin-right: 10%;
+}
+
+footer .Contact_Info ul li {
+  margin-left: 15%;
+}
+
+footer .Localization_Container {
+  margin-left: 10%;
+}
+
+footer .Localization_Container h3 {
+  text-align: center;
+}
+
+/* Responsive para pantallas de 1793px*/
+
+@media(max-width: 1793px) {
+
+  #expertos .container {
+    margin: 0 auto;
+  }
+
+  #expertos .exp {
+    width: 25%;
+  }
+}
+
+/*Responsive para pantallas de 1364px*/
+
+@media(max-width: 1364px) {
+  #expertos .exp {
+    width: 23%;
+  }
+}
+
+/*Responsive para pantallas de 1104px*/
+
+@media(max-width: 1104px) {
+
+  #expertos img {
+    width: 120px;
+  }
+
+  #expertos .exp {
+    width: 22%;
+  }
+}
+
+/*Responsivo movil*/
+
+@media(max-width: 768px) {
+
+  header #logo,
+  header nav,
+  header nav li,
+  #cuadriculas .caja {
+    float: none;
+    text-align: center;
+    width: 100%;
+  }
+
+  header {
+    padding-bottom: 20px;
+  }
+
+  #info h1 {
+    margin-top: 40px;
+  }
+
+  #expertos h1 {
+    padding-top: 20px;
+  }
+
+  #expertos img {
+    width: 150px;
+  }
+
+  #expertos .exp {
+    width: 80%;
+  }
+
+  footer {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  footer .Logo_Container {
+    width: 250px;
+    height: 100px;
+    margin: 0 auto;
+  }
+
+  footer .Footer_Navigation {
+    margin: 0 auto;
+    margin-top: 25px;
+  }
+
+  footer .Footer_Navigation li {
+    text-align: center;
+  }
+
+  footer .Localization_Container iframe {
+    width: 275px;
+  }
+
+  footer .Contact_Info h3 {
+    margin-left: 60px;
+  }
+
+  footer .Contact_Info ul {
+    margin-right: 75px;
+  }
+
+  footer .Localization_Container h3 {
+    margin-right: 30px;
+  }
+}

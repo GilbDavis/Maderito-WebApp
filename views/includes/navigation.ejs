@@ -1,0 +1,94 @@
+<div class="backdrop"></div>
+<header class="main-header">
+    <button id="side-menu-toggle">Menu</button>
+    <img id="logoImg" src="/images/logo-maderito.png" alt="Logo maderito" />
+    <nav class="main-header__nav">
+        <ul class="main-header__item-list">
+            <li class="main-header__item" style="position: absolute; left: 230px; top: 4.5%;">
+                <a class="<%= path === '/' ? 'active' : '' %>" href="/">Inicio</a>
+            </li>
+            <% if (isAuthenticated) { %>
+            <li class="main-header__item">
+                <a class="<%= path === '/admin/add-product' ? 'active' : '' %>" href="/admin/add-product">
+                    Reservar
+                </a>
+            </li>
+            <% if (isAdmin === true) { %>
+            <li class="main-header__item">
+                <a class="<%= path === '/admin/agenda' ? 'active' : '' %>" href="/admin/agenda">Mi Agenda
+                </a>
+            </li>
+            <% } else if (isAdmin === false) { %>
+            <li class="main-header__item">
+                <a class="<%= path === '/admin/products' ? 'active' : '' %>" href="/admin/products">Mi Agenda
+                </a>
+            </li>
+            <% } %>
+            <% } %>
+        </ul>
+        <ul class="main-header__item-list">
+            <% if (!isAuthenticated) { %>
+            <li class="main-header__item">
+                <a class="<%= path === '/login' ? 'active' : '' %>" href="/login"
+                    style="border: 1px #000000 solid; border-radius: 5px; padding: 10px; background: #000000;">
+                    Iniciar Sesión</a>
+            </li>
+            <li class="main-header__item">
+                <a class="<%= path === '/signup' ? 'active' : '' %>"
+                    style="border: 1px #000000 solid; border-radius: 5px; padding: 10px; background: #000000;"
+                    href="/signup">Registrate!</a>
+            </li>
+            <% } else { %>
+            <li class="main-header__item">
+                <form action="/logout" method="post">
+                    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                    <button type="submit"
+                        style="border: 1px #000000 solid; border-radius: 5px; padding: 10px; background: #000000;">Cerrar
+                        Sesión</button>
+                </form>
+            </li>
+            <% } %>
+        </ul>
+    </nav>
+</header>
+
+<nav class="mobile-nav">
+    <ul class="mobile-nav__item-list">
+        <li class="mobile-nav__item">
+            <a class="<%= path === '/' ? 'active' : '' %>" href="/">Inicio</a>
+        </li>
+        <% if (isAuthenticated) { %>
+        <li class="mobile-nav__item">
+            <a class="<%= path === '/admin/add-product' ? 'active' : '' %>" href="/admin/add-product">Acordar visita
+            </a>
+        </li>
+        <% if (isAdmin) { %>
+        <li class="mobile-nav__item">
+            <a class="<%= path === '/admin/agenda' ? 'active' : '' %>" href="/admin/agenda">Mi Agenda
+            </a>
+        </li>
+        <% } else { %>
+        <li class="mobile-nav__item">
+            <a class="<%= path === '/admin/products' ? 'active' : '' %>" href="/admin/products">Mi Agenda
+            </a>
+        </li>
+        <% } %>
+
+        <% } %>
+        <% if (!isAuthenticated) { %>
+        <li class="mobile-nav__item">
+            <a class="<%= path === '/login' ? 'active' : '' %>" href="/login">Iniciar Sesión</a>
+        </li>
+        <li class="mobile-nav__item">
+            <a class="<%= path === '/signup' ? 'active' : '' %>" href="/signup">Registrate!</a>
+        </li>
+        <% } else { %>
+        <li class="mobile-nav__item">
+            <form action="/logout" method="post">
+                <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                <button type="submit">Cerrar Sesión</button>
+            </form>
+        </li>
+        <% } %>
+    </ul>
+</nav>

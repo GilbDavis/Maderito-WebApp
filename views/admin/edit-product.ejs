@@ -1,0 +1,57 @@
+<%- include('../includes/head.ejs') %>
+<link rel="stylesheet" href="/css/forms.css">
+<link rel="stylesheet" href="/css/product.css">
+</head>
+
+<body>
+    <%- include('../includes/navigation.ejs') %>
+
+    <main>
+        <% if (errorMessage) { %>
+        <div class="user-message user-message--error"><%= errorMessage %></div>
+        <% } %>
+        <form class="product-form" action="/admin/<% if (editing) { %>edit-product<% } else { %>add-product<% } %>"
+            method="POST" enctype="multipart/form-data">
+            <div class="form-control">
+                <label for="title">Titulo</label>
+                <input class="<%= validationErrors.find(e => e.param === 'title') ? 'invalid' : '' %>" type="text"
+                    name="title" id="title" value="<% if (editing || hasError) { %><%= product.title %><% } %>">
+            </div>
+            <div class="form-control">
+                <label for="image">Imagen</label>
+                <input name="imageUrl" type="file" id="image">
+            </div>
+            <div class="form-control">
+                <label for="fecha">Fecha</label>
+                <input type="datetime-local" name="fecha" id="fecha"
+                    value="<% if (editing || hasError) { %><%= product.fecha %><% } %>">
+            </div>
+            <div class="form-control">
+                <label for="estado">Estado del pedido:</label>
+                <select <%= isAdmin ? '' : "disabled" %> class="selectEstado" name="selectEstado">
+                    <optgroup label="Seleccionar estado">
+                        <option value="En proceso">En proceso</option>
+                        <option value="Denegado">Denegado</option>
+                        <option value="Confirmado">Confirmado</option>
+                    </optgroup>
+                </select>
+            </div>
+            <div class="form-control">
+                <label for="description">Descripción</label>
+                <textarea class="<%= validationErrors.find(e => e.param === 'description') ? 'invalid' : '' %>"
+                    name="description" id="description"
+                    rows="5"><% if (editing || hasError) { %><%= product.description %><% } %></textarea>
+            </div>
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+            <% if (editing) { %>
+            <input type="hidden" value="<%= product._id %>" name="productId">
+            <% } %>
+
+            <button class="btn" type="submit"><% if (editing) { %>Actualizar Producto<% } else { %>Añadir
+                Producto<% } %></button>
+        </form>
+    </main>
+
+    <%- include("../includes/footer.ejs") %>
+
+    <%- include('../includes/end.ejs') %>
