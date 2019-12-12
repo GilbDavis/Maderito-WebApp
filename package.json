@@ -1,11 +1,15 @@
 {
-  "name": "nodejs-complete-guide",
+  "name": "ebanisteria_castro",
   "version": "1.0.0",
-  "description": "Complete Node.js Guide",
+  "description": "Proyecto de la profesora ensy",
   "main": "app.js",
+  "engines": {
+    "node": "10.16.3"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon app.js",
+    "start": "pm2-runtime start ecosystem.config.js --env production",
+    "dev": "nodemon app.js",
     "start-server": "node app.js"
   },
   "author": "Maximilian Schwarzmüller",
@@ -15,11 +19,13 @@
   },
   "dependencies": {
     "@sendgrid/mail": "^6.4.0",
+    "aws-sdk": "^2.585.0",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.3",
     "compression": "^1.7.4",
     "connect-flash": "^0.1.1",
     "connect-mongodb-session": "^2.0.3",
+    "cors": "^2.8.5",
     "csurf": "^1.10.0",
     "datetimepicker": "^0.1.39",
     "dotenv": "^8.0.0",
@@ -34,6 +40,7 @@
     "mongodb": "^3.1.6",
     "mongoose": "^5.2.17",
     "multer": "^1.4.1",
+    "multer-s3": "^2.9.0",
     "mysql2": "^1.6.1",
     "nodemailer": "^6.2.1",
     "nodemailer-sendgrid-transport": "^0.2.0",

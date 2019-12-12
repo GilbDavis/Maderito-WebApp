@@ -16,7 +16,7 @@
                     </h1>
                 </header>
                 <div class="card__image">
-                    <img src="/<%= product.imageUrl %>" alt="<%= product.title %>">
+                    <img src="<%= product.imageUrl %>" alt="<%= product.title %>">
                 </div>
                 <div class="card__content">
                     <h2 class="product__price">
@@ -25,7 +25,8 @@
                     <p class="product__description">
                         <%= product.description %>
                     </p>
-                    <h3 class="product__description" style="margin-top: 25px; font-weight: normal;">Estado del pedido: <strong><%= product.estado %></strong></h3>
+                    <h3 class="product__description" style="margin-top: 25px; font-weight: normal;">Estado del pedido:
+                        <strong><%= product.estado %></strong></h3>
                 </div>
                 <div class="card__actions">
                     <a href="/admin/edit-product/<%= product._id %>?edit=true" class="btn">Edit</a>
