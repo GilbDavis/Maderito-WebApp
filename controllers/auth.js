@@ -214,16 +214,16 @@ exports.postReset = (req, res, next) => {
         return user.save();
       })
       .then(result => {
-        res.redirect('/');
-        return transporter.sendMail({
+        transporter.sendMail({
           to: req.body.email,
           from: 'shop@node-complete.com',
           subject: 'Password reset',
           html: `
             <p>You requested a password reset</p>
-            <p>Click this <a href="http://localhost:8080/reset/${token}">link</a> to set a new password.</p>
+            <p>Click this <a href="http://ebanisteria.herokuapp.com/reset/${token}">link</a> to set a new password.</p>
           `
         });
+        return res.redirect('/');
       })
       .catch(err => {
         const error = new Error(err);

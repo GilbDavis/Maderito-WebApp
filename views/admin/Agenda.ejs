@@ -16,6 +16,7 @@
           <th>Cita</th>
           <th>Estado de la cita</th>
           <th>Fecha de la cita</th>
+          <th>Imagen adjunta</th>
           <th>Editar cita</th>
           <th>Eliminar cita</th>
         </tr>
@@ -25,6 +26,7 @@
           <td><%= product.title %></td>
           <td><%= product.estado %></td>
           <td><%= moment(product.fecha).locale("es").format("ddd DD-MMM-YYYY, hh:mm A") %></td>
+          <td><a target="_blank" href="<%= product.imageUrl %>">Abrir imagen</a></td>
           <td><a href="/admin/edit-product/<%= product._id %>?edit=true" class="btn">Editar</a></td>
           <td>
             <form action="/admin/delete-product" method="POST">

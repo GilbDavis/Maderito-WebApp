@@ -288,3 +288,9 @@ form {
     width: 30rem;
   }
 }
+
+@media (max-width: 768px) {
+  #logoImg {
+    left: 190px;
+  }
+}

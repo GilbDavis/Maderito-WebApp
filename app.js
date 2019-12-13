@@ -37,22 +37,6 @@ app.use((req, res, next) => {
 });
 
 const csrfProtection = csrf();
-// const fileStorage = multer.diskStorage({
-//   destination: (req, file, cb) => {
-//     cb(null, './images');
-//   },
-//   filename: (req, file, cb) => {
-//     cb(null, new Date().getTime() + '-' + file.originalname);
-//   }
-// });
-
-// const fileFilter = (req, file, cb) => {
-//   if (file.mimetype === 'image/png' || file.mimetype === 'image/jpg' || file.mimetype === 'image/jpeg') {
-//     cb(null, true);
-//   } else {
-//     cb(null, false);
-//   }
-// };
 
 app.set('view engine', 'ejs');
 app.set('views', 'views');
@@ -62,7 +46,6 @@ const shopRoutes = require('./routes/shop');
 const authRoutes = require('./routes/auth');
 
 app.use(bodyParser.urlencoded({ extended: true }));
-// app.use(multer({ storage: fileStorage, fileFilter: fileFilter }).single('imageUrl'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/images', express.static(path.join(__dirname, 'images')));
 app.use(

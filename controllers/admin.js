@@ -1,6 +1,5 @@
 require('dotenv').config();
 const Product = require('../models/product');
-const fileHelper = require('../util/file');
 const moment = require('moment');
 const AWS = require('aws-sdk');
 
@@ -159,7 +158,6 @@ exports.postEditProduct = (req, res, next) => {
   const updatedFecha = req.body.fecha;
   const image = req.file;
   const updatedDesc = req.body.description;
-  const updatedEstado = req.user.isAdmin ? req.body.selectEstado : "En proceso";
 
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
@@ -186,6 +184,7 @@ exports.postEditProduct = (req, res, next) => {
           return res.redirect('/');
         }
       }
+      const updatedEstado = req.user.isAdmin ? req.body.selectEstado : product.estado;
       product.title = updatedTitle;
       product.description = updatedDesc;
       product.fecha = updatedFecha;
